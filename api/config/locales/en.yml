@@ -1,0 +1,95 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  success:
+          registered: "Thank you for registering. Please click the verification link we sent to your email. Thanks. Remember to check your SPAM folder and mark it as 'Not Spam'. Thanks."
+          verified: "Your Email verfied sucessfully"
+          resetlinksent: "Password reset link sent to specified email address."
+          resetpassword: "Password updated sucessfully"
+          logout: "Sucessfully logout"
+          passwordchanged: "Password updated sucessfully"
+          profileupdated: "User Profile Updated"
+          businessupdated: "Business Profile Updated!"
+          add_business: "New Business Sucessfully Added"
+
+          customer_added: "New Customer Added - %{customer_name}"
+          customer_updated: "%{customer_name} - Customer Updated"
+          customer_deleted: "%{customer_name} - Customer Deleted"
+
+          discount_added: "New Discount Added - %{discount_name}"
+          discount_updated: "%{discount_name} - Discount Updated"
+          discount_deleted: "%{discount_name} - Discount Deleted"
+
+          employee_added: "New Employee Added - %{employee_name}"
+          employee_updated: "%{employee_name} - Employee Updated"
+          employee_deleted: "%{employee_name} - Employee Deleted"
+
+          table_added: "New Table Added - %{table_name}"
+          table_updated: "%{table_name} - Table Updated"
+          table_deleted: "%{table_name} - Table Deleted"
+
+          subscription_added: "New Subscription - %{subscription_name}"
+          subscription_updated: "Subscription - %{subscription_name} Updated"
+          passcode_updated: "Passcode Updated"
+
+          tax_added: "New Tax Added - %{tax_name}"
+          tax_updated: "%{tax_name} - Tax Updated"
+          tax_deleted: "%{tax_name} - Tax Deleted"
+
+          surcharge_added: "New Surcharge Added - %{surcharge_name}"
+          surcharge_updated: "%{surcharge_name} - Surcharge Updated"
+          surcharge_deleted: "%{surcharge_name} - Surcharge Deleted"
+
+          register_added: "New Register Added - %{register_name}"
+          register_updated: "%{register_name} - Register Updated"
+          register_deleted: "%{register_name} - Register Deleted"
+
+          item_added: "New Item Added - %{item_name}"
+          item_updated: "%{item_name} - Item Updated"
+          item_deleted: "%{item_name} - Item Deleted"
+
+          category_added: "New Category Added - %{category_name}"
+          category_updated: "%{category_name} - Category Updated"
+          category_deleted: "Category(%{category_name}) and dependent items are deleted"
+
+          department_added: "New Department Added - %{department_name}"
+          department_updated: "%{department_name} - Department Updated"
+          department_deleted: "Department(%{department_name}) and dependent categories, items are deleted"
+
+  error:
+        already_linked: "This Employee ID is already linked, Please try SignIn."
+        already_verified: "This Email is already verified, Please try SignIn."
+        already_registered: "You already registered please login"
+        not_registered: "Looks like your'e not registered, Please register here."
+        not_verified: "Your account is not verified"
+        registration_notexists: "Incorrect Business information, Please try again."
+        incorrect_verification_link: "Incorrect verification Link Try again or copy paste the link."
+        incorrect_reset_link: "Incorrect reset Link Try again or copy paste the link."
+        passwordmismatch: "New password mismatch, Please try again"
+        resetemailnotpresentorverfied: "Incorrect link, Please try again"
+        empnotlinked: "This Email not linked with any Business"
+        bidnotfound: "Business Info not found, Please contact Admin"
+        session_expired: "Session expired, Please login to continue"
+        wrongpassword: "Please check the password that you have entered"
+        not_exists: "ShopOwner ID does not exist"
+        passworderror: "Authentication Failed, Please check your password"
+        emailnotexist: "Authentication Failed, Email Address not exist"

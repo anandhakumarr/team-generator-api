@@ -1,0 +1,6 @@
+Django==2.2.1
+django-rest-swagger==2.2.0
+djangorestframework==3.9.4
+django-json-widget==0.2.0
+psycopg2==2.8.3
+Pillow==6.1.0
