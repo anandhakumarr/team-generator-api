@@ -15,8 +15,8 @@ class ContentTemplate(models.Model):
 class FantacyApp(models.Model):
     name = models.CharField(max_length=250, blank=False)
     CHOICES = (
-        ("ACTIVE", "active"),
-        ("INACTIVE", "inactive"),
+        ("active", "ACTIVE"),
+        ("inactive", "INACTIVE"),
     )
     status = models.CharField(max_length=10, choices=CHOICES, default='INACTIVE')
     created_at = models.DateTimeField(auto_now_add=True)
@@ -28,8 +28,8 @@ class FantacyApp(models.Model):
 class FantacySport(models.Model):
     name = models.CharField(max_length=250, blank=False)
     CHOICES = (
-        ("ACTIVE", "active"),
-        ("INACTIVE", "inactive"),
+        ("active", "ACTIVE"),
+        ("inactive", "INACTIVE"),
     )
     status = models.CharField(max_length=10, choices=CHOICES, default='INACTIVE')
     skills = models.CharField(max_length=250, blank=False)
@@ -67,15 +67,22 @@ class Team(models.Model):
 class Match(models.Model):
     name = models.CharField(max_length=250, blank=False)
     power_pics = models.CharField(max_length=250)
+    sport = models.ForeignKey(FantacySport, on_delete=models.CASCADE)
     team1 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='team1')
     team2 = models.ForeignKey(Team, on_delete=models.CASCADE, related_name='team2')
-    date = models.DateField(blank=False)
+    fantacyapp = models.ManyToManyField(FantacyApp)
+    date = models.DateTimeField(blank=False)
     CHOICES = (
-        ("PENDING", "pending"),
-        ("APPROVED", "approved"),
-        ("REJECTED", "rejected"),
+        ("pending", "PENDING"),
+        ("approved", "APPROVED"),
+        ("rejected", "REJECTED"),
     )
-    status = models.CharField(max_length=10, choices=CHOICES, default='PENDING')
+    status = models.CharField(max_length=10, choices=CHOICES, default='pending')
+    CHOICES_GENDER = (
+        ("men", "MEN"),
+        ("women", "WOMEN"),
+    )
+    gender = models.CharField(max_length=10, choices=CHOICES_GENDER, default='me')
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -134,7 +141,7 @@ class TeamRequest(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.name
+        return self.match.name
 
 
 class UserStory(models.Model):
@@ -143,9 +150,9 @@ class UserStory(models.Model):
     content = models.TextField()
     storydate = models.DateField()
     STORYCHOICES = (
-        ("PENDING", "pending"),
-        ("APPROVED", "approved"),
-        ("REJECTED", "rejected"),
+        ("pending", "PENDING"),
+        ("approved", "APPROVED"),
+        ("rejected", "REJECTED"),
     )
     status = models.CharField(max_length=10, choices=STORYCHOICES, default='PENDING')
     match = models.ForeignKey(Match, on_delete=models.CASCADE)
