@@ -46,6 +46,8 @@ class MatchSerializer(serializers.BaseSerializer):
             'date': obj.date,
             'sport': obj.sport.name,
             'status': obj.status,
+            'team1_id': obj.team1.id,
+            'team2_id': obj.team2.id,            
             'team1_name': obj.team1.name,
             'team2_name': obj.team2.name,
             'team1_alias': obj.team1.alias,

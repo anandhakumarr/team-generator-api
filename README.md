@@ -105,3 +105,50 @@ Sample Team Request JSON
       }
   }
 }```
+
+
+
+
+su - postgres
+createuser --interactive --pwprompt
+createdb -O chinchan fantacydb
+dropuser username
+dropdb dbname
+GRANT permissions ON DATABASE dbname TO username;
+
+
+sudo -u postgres createuser chinchan
+sudo -u postgres createdb fantacydb
+sudo -u postgres psql
+alter user chinchan with encrypted password 'Diveinn123';
+grant all privileges on database fantacydb to chinchan;
+
+
+sudo service postgresql restart
+
+
+sudo su - postgres
+psql -U postgres
+CREATE ROLE demorole1 WITH LOGIN ENCRYPTED PASSWORD 'password1';
+\du
+DROP ROLE demorole1;
+
+CREATE ROLE chinchan WITH SUPERUSER CREATEDB CREATEROLE LOGIN ENCRYPTED PASSWORD 'Diveinn123';
+
+psql -U chinchan fantacydb -W
+
+\l
+
+REVOKE ALL PRIVILEGES ON database fantacydb FROM postgres;
+
+\c fantacydb
+
+ vi /etc/postgresql/11/main/pg_hba.conf
+ sudo service postgresql restart
+ psql -U chinchan fantacydb -W
+
+
+ sudo apt-get install python-psycopg2
+
+ sudo apt-get install libpq-dev
+sudo apt-get install python-dev
